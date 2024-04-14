@@ -1,0 +1,224 @@
+4. За да креирам локален репозиториум, да влезам во него и да го иницијализирам Git во него ги искористив командите
+- $ mkdir SI_2024_lab1_223034
+- $ cd SI_2024_lab1_223034
+- $ git init
+Initialized empty Git repository in C:/Users/filip/SI_2024_lab1_223034/.git/
+
+5. Го поврзав локалниот со оддалечениот репозиториум со командата
+- $ git remote add origin https://github.com/EmaRistovska/SI_2024_lab1_223034.git
+
+6. Креирав README.md датотека во која се потпишав, ја додадов и и направив commit со командите
+- $ nano README.md
+- $ cat README.md
+Ema Ristovska
+223034
+- $ git commit -m "Initial commit"
+[master (root-commit) 76b9ab7] Initial commit
+ 1 file changed, 2 insertions(+)
+ create mode 100644 README.md
+
+7. Ги превземав трите фајлови, ги додадов во локалниот репозиториум и направив commit со командите
+- $ cp ~/Downloads/SILab1Main.java .
+- $ cp ~/Downloads/SILab1_1.java .
+- $ cp ~/Downloads/SILab1_2.java .
+
+- $ git add SILab1Main.java
+- $ git add SILab1_1.java
+- $ git add SILab1_2.java
+
+- $ git commit -m "Add starter code"
+[master ecccf9a] Add starter code
+ 3 files changed, 47 insertions(+)
+ create mode 100644 SILab1Main.java
+ create mode 100644 SILab1_1.java
+ create mode 100644 SILab1_2.java
+
+8. Ги синхронизирав сите гранки со оддалечениот репозиториум
+- $ git push --all origin
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (8/8), 1.12 KiB | 1.12 MiB/s, done.
+Total 8 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/EmaRistovska/SI_2024_lab1_223034.git
+ * [new branch]      master -> master
+
+9. Ги креирав гранките bug1 и bug2 кои се разгрануваат од master
+- $ git branch bug1
+- $ git branch bug2
+
+10. Се префрлив на гранката bug1
+- $ git checkout bug1
+Switched to branch 'bug1'
+
+11. Ја поправив грешката во методот filterOddLengthStrings и направив commit со командите
+- $ nano SILab1_1.java
+- $ cat SILab1_1.java
+import java.util.ArrayList;
+import java.util.List;
+
+public class SILab1_1 {
+    public static List<String> filterOddLengthStrings(List<String> list) {
+        List<String> result = new ArrayList<>();
+        for (String el : list) {
+            if (el.length() % 2 != 0) {
+                result.add(el);
+            }
+        }
+        return result;
+    }
+
+
+}
+- $ git add SILab1_1.java
+- $ git commit -m "Fix wrong condition in filterOddLengthStrings"
+[bug1 6aa388e] Fix wrong condition in filterOddLengthStrings
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+12. Се префрлив на гранката bug2
+- $ git checkout bug2
+Switched to branch 'bug2'
+
+13. Ја поправив грешката во методот makeBigStringFrom и направив commit со командите
+- $ nano SILab1_2.java
+- $ cat SILab1_2.java
+import java.util.List;
+
+public class SILab1_2 {
+
+    private static String makeBigStringFrom (List<String> list, int minLength) {
+        StringBuilder sb = new StringBuilder();
+        for (String el : list) {
+            if (el.length() >= minLength) {
+                sb.append(el);
+            }
+        }
+        return sb.toString();
+    }
+}
+- $ git add SILab1_2.java
+- $ git commit -m "Fix wrong condition in makeBigStringFrom"
+[bug2 1230801] Fix wrong condition in makeBigStringFrom
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+14. Се вратв на гранката bug1
+- $ git checkout bug1
+Switched to branch 'bug1'
+
+15. Во класата SILab1Main, после for циклусот, во линија 16, додадов повик до статичкиот метод filterOddLengthStrings и направив commit со следниве команди
+- $ nano SILab1Main.java
+- $ git add SILab1Main.java
+- $ git commit -m "Call method filterOddLengthStrings in main class"
+[bug1 64794b2] Call method filterOddLengthStrings in main class
+ 1 file changed, 1 insertion(+)
+
+16. Се вратив на гранката bug2
+- $ git checkout bug2
+Switched to branch 'bug2'
+
+17. Во класата SILab1Main, после for циклусот, во линија 16, додадов повик до статичкиот метод makeBigStringFrom и направив commit со командите
+- $ nano SILab1Main.java
+- $ git add SILab1Main.java
+- $ git commit -m "Call method makeBigStringFrom in main class"
+[bug2 39da6fb] Call method makeBigStringFrom in main class
+ 1 file changed, 1 insertion(+)
+
+18. Ги синхронизирав гранките со оддалечениот репозиториум
+- $ git push --all origin
+Enumerating objects: 16, done.
+Counting objects: 100% (16/16), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (12/12), 1.25 KiB | 1.25 MiB/s, done.
+Total 12 (delta 8), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (8/8), completed with 4 local objects.
+To https://github.com/EmaRistovska/SI_2024_lab1_223034.git
+ * [new branch]      bug1 -> bug1
+ * [new branch]      bug2 -> bug2
+
+19. Се вратив на гранката master
+- $ git checkout master
+Switched to branch 'master'
+
+20. Ја споив гранката bug1 кон master
+- $ git merge bug1
+Updating ecccf9a..64794b2
+Fast-forward
+ SILab1Main.java | 1 +
+ SILab1_1.java   | 4 ++--
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+21. Ги синхронизирав гранките со оддалечениот репозиториум
+- $ git push --all origin
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/EmaRistovska/SI_2024_lab1_223034.git
+   ecccf9a..64794b2  master -> master
+
+22. Се префрлив на гранката bug2
+- $ git checkout bug2
+Switched to branch 'bug2'
+
+23. Направив rebase спрема гранката master и тоа резултираше со конфликт
+- $ git rebase master
+Auto-merging SILab1Main.java
+CONFLICT (content): Merge conflict in SILab1Main.java
+error: could not apply 39da6fb... Call method makeBigStringFrom in main class
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 39da6fb... Call method makeBigStringFrom in main class
+
+Конфликтот резултираше бидејќи во истата линија код (линија 16) имавме два различни повика. Истиот го решив со командата $ nano SILab1Main.java со која го избришав повикот System.out.println(SILab1_1.filterOddLengthStrings(list)); и го оставив повикот до статичкиот метод makeBigStringFrom System.out.println(SILab1_2.makeBigStringFrom(list)); Потоа ги направив следниве команди за успешен rebase
+- $ git add SILab1Main.java
+- $ git rebase --continue
+[detached HEAD 816cf85] Call method makeBigStringFrom in main class
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Successfully rebased and updated refs/heads/bug2.
+
+24. Се префрлив на гранката master
+- $ git checkout master
+Switched to branch 'master'
+
+25. Ја споив гранката bug2 кон master
+- $ git merge bug2
+Updating 64794b2..816cf85
+Fast-forward
+ SILab1Main.java | 2 +-
+ SILab1_2.java   | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+26. Ги синхронизирав сите гранки кон оддалечениот репозиториум
+- $ git push --all origin
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 666 bytes | 666.00 KiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 3 local objects.
+To https://github.com/EmaRistovska/SI_2024_lab1_223034.git
+   64794b2..816cf85  master -> master
+ ! [rejected]        bug2 -> bug2 (non-fast-forward)
+error: failed to push some refs to 'https://github.com/EmaRistovska/SI_2024_lab1_223034.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+27. Морав да искористам --force за да ги синфронизирам гранките
+- $ git push --force --all origin
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/EmaRistovska/SI_2024_lab1_223034.git
+ + 39da6fb...816cf85 bug2 -> bug2 (forced update)
+
+28. Ја додадов датотеката logs.txt каде што ги ископирав сите git логови и ја додадов датотеката 223034.txt каде што ја водев целата документација за лабараториската вежба
+- $ nano logs.txt
+- $ nano 223034.txt
+- $ git add logs.txt
+- $ git add 223034.txt
+- $ git commit -m "Final commit"
+
+29. Ги синхронизирав сите гранки со оддалечениот репозиториум
+- $ git push --all origin

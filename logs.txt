@@ -1,0 +1,146 @@
+4.
+Initialized empty Git repository in C:/Users/filip/SI_2024_lab1_223034/.git/
+
+
+6. 
+$ git commit -m "Initial commit"
+[master (root-commit) 76b9ab7] Initial commit
+ 1 file changed, 2 insertions(+)
+ create mode 100644 README.md
+
+
+7. 
+$ git commit -m "Add starter code"
+[master ecccf9a] Add starter code
+ 3 files changed, 47 insertions(+)
+ create mode 100644 SILab1Main.java
+ create mode 100644 SILab1_1.java
+ create mode 100644 SILab1_2.java
+
+
+8.
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (8/8), 1.12 KiB | 1.12 MiB/s, done.
+Total 8 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/EmaRistovska/SI_2024_lab1_223034.git
+ * [new branch]      master -> master
+
+
+10. 
+Switched to branch 'bug1'
+
+
+11.
+[bug1 6aa388e] Fix wrong condition in filterOddLengthStrings
+1 file changed, 2 insertions(+), 2 deletions(-)
+
+
+12.
+Switched to branch 'bug2'
+
+
+13.
+[bug2 1230801] Fix wrong condition in makeBigStringFrom
+1 file changed, 2 insertions(+), 2 deletions(-)
+
+
+14.
+Switched to branch 'bug1'
+
+
+15.
+[bug1 64794b2] Call method filterOddLengthStrings in main class
+1 file changed, 1 insertion(+)
+
+
+16. Switched to branch 'bug2'
+
+
+17.
+[bug2 39da6fb] Call method makeBigStringFrom in main class
+1 file changed, 1 insertion(+)
+
+
+18. 
+Enumerating objects: 16, done.
+Counting objects: 100% (16/16), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (12/12), 1.25 KiB | 1.25 MiB/s, done.
+Total 12 (delta 8), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (8/8), completed with 4 local objects.
+To https://github.com/EmaRistovska/SI_2024_lab1_223034.git
+ * [new branch]      bug1 -> bug1
+ * [new branch]      bug2 -> bug2
+
+
+19.
+Switched to branch 'master'
+
+
+20.
+Updating ecccf9a..64794b2
+Fast-forward
+ SILab1Main.java | 1 +
+ SILab1_1.java   | 4 ++--
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+
+21.
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/EmaRistovska/SI_2024_lab1_223034.git
+   ecccf9a..64794b2  master -> master
+
+
+22. 
+Switched to branch 'bug2'
+
+
+23.
+Auto-merging SILab1Main.java
+CONFLICT (content): Merge conflict in SILab1Main.java
+error: could not apply 39da6fb... Call method makeBigStringFrom in main class
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 39da6fb... Call method makeBigStringFrom in main class
+
+
+24. 
+Switched to branch 'master'
+
+
+25. 
+Updating 64794b2..816cf85
+Fast-forward
+ SILab1Main.java | 2 +-
+ SILab1_2.java   | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+
+26.
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 666 bytes | 666.00 KiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 3 local objects.
+To https://github.com/EmaRistovska/SI_2024_lab1_223034.git
+   64794b2..816cf85  master -> master
+ ! [rejected]        bug2 -> bug2 (non-fast-forward)
+error: failed to push some refs to 'https://github.com/EmaRistovska/SI_2024_lab1_223034.git'
+hint: Updates were rejected because a pushed branch tip is behind its remote
+hint: counterpart. If you want to integrate the remote changes, use 'git pull'
+hint: before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+
+27.
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/EmaRistovska/SI_2024_lab1_223034.git
+ + 39da6fb...816cf85 bug2 -> bug2 (forced update)
